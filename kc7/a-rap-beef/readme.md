@@ -1,4 +1,4 @@
-# A Rap Beef 🎤 – KC7 Walkthrough
+# A Rap Beef 🎤 – KC7 readme
 
 > **Focus:** SOC fundamentals, alert triage, KQL-based log investigation  
 > **Status:** ✅ Completed
