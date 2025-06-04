@@ -27,9 +27,4 @@ You were dropped into a simulated security operations environment and had to wri
 
 ---
 
-## 🧰 Sample KQL Used
 
-```kql
-SigninLogs
-| where ResultType != 0
-| summarize Count = count() by UserPrincipalName, Location
