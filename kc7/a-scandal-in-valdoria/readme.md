@@ -1,4 +1,4 @@
-# A Scandal in Valdoria 👑 – KC7 Walkthrough
+# A Scandal in Valdoria 👑 – KC7 readme
 
 > **Focus:** Phishing email detection, user behavior analysis  
 > **Status:** ✅ Completed
