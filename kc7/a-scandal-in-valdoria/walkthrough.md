@@ -1,51 +1,46 @@
-
 # A Scandal in Valdoria 👑 – KC7 Walkthrough
 
-> **Focus:** Phishing email investigation, malware detection  
+> **Focus:** Phishing email detection, user behavior analysis  
 > **Status:** ✅ Completed
 
 ---
 
 ## 🧠 Scenario
 
-A political figure received a suspicious email that may contain a phishing attachment. Your job: investigate the incident, confirm if malware was delivered, and trace the compromise.
+You received a tip that a political figure might have been phished. Your task was to investigate any suspicious email activity and confirm if compromise occurred.
 
 ---
 
 ## 🔎 Steps Taken
 
-1. **Email Header Analysis**
-   - Extracted metadata and sender IP
-   - Confirmed sender was spoofed via mismatch in SPF/DKIM
+1. **Email Delivery Log Querying**
+   - Queried message trace logs to find suspicious sender information.
+   - Filtered results based on external sender domains and abnormal subject lines.
 
-2. **Attachment Inspection**
-   - ZIP archive contained a `.doc` file with macros
-   - Detected base64-encoded PowerShell dropper embedded
+2. **User Activity Analysis**
+   - Queried endpoint logs to detect execution of downloaded files shortly after email delivery.
+   - Used KQL to search for unusual command-line activity by the recipient.
 
-3. **Payload Behavior**
-   - Payload contacted a remote server to download secondary malware
-   - DNS + NetFlow logs showed communication with known C2 infrastructure
+3. **IOC Identification**
+   - Identified suspicious filename and hash values linked to phishing attachments.
+   - Used pattern matching in KQL to detect repeated execution attempts.
 
 ---
 
 ## 🔐 Outcome
 
-- Confirmed delivery of malicious macro-based payload
-- Documented C2 behavior + artifacts found on host
-- Identified TTPs:
-  - `T1566.001` (Phishing via Attachment)
-  - `T1059.001` (PowerShell)
-  - `T1047` (WMI execution)
+- Verified phishing email led to execution of a potentially malicious file.
+- Confirmed user was compromised via attachment-based phishing.
+- Noted attacker behavior aligning with credential theft and persistence.
 
 ---
 
 ## 🧰 Tools Used
 
-- Email Header Analyzer
-- VirusTotal
-- PowerShell decoding tools
-- Splunk (for host logs)
+- **KQL (Kusto Query Language)**
+- KC7-provided message trace and endpoint log datasets
+- Email metadata queries
 
 ---
 
-*Excellent case for learning email forensics and lateral movement identification.*
+*Showcased ability to investigate end-to-end phishing incidents using only KQL and logs.*
