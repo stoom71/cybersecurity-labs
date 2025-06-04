@@ -1,4 +1,4 @@
-# KQL 101 🧠 – KC7 Walkthrough
+# KQL 101 🧠 – KC7 readme
 
 > **Focus:** Query development in Kusto Query Language (KQL)  
 > **Status:** ✅ Completed
