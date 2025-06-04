@@ -1,5 +1,5 @@
 
-# Jojo's Hospital 🏥 – KC7 Walkthrough
+# Jojo's Hospital 🏥 – KC7 readme
 
 > **Focus:** Host-based analysis, lateral movement, credential theft  
 > **Status:** ✅ Completed
