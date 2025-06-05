@@ -1,0 +1,108 @@
+# OverTheWire: Bandit Notes (L0–L15)
+
+A compilation of my walkthrough notes for the Bandit wargame from OverTheWire. Good for CTF prep and showing off your terminal chops.
+
+---
+
+**L2 → L3**
+
+```
+Password: MNk8KNH3Usiio41PRUEoDFPqfxLPlSmx
+```
+
+**L3 → L4**
+
+```
+Password: 2WmrDFRmJIq3IPxneAaMGhap0pFhF3NJ
+```
+
+**L4 → L5**
+
+```
+Password: 4oQYVPkxZOOEOO5pTW81FB8j8lxXGUQw
+Note: Used `find inhere/ -type f -size 1033c ! -executable` to locate the file.
+```
+
+**L5 → L6**
+
+```
+Password: HWasnPhtq9AVKe0dmk45nxy20cvUa6EG
+Command: find / -user bandit7 -group bandit6 -size 33c 2>/dev/null
+```
+
+**L6 → L7**
+
+```
+Password: morbNTDkSW6jIlUc0ymOdMaLnOlFVAaj
+Note: Used stderr redirection `2>/dev/null` to hide permission errors.
+```
+
+**L7 → L8**
+
+```
+Password: dfwvzFQi4mU0wfNbFOe9RoWskMLg7eEc
+```
+
+**L8 → L9**
+
+```
+Password: 4CKMh1JI91bUIZZPXDqGanal4xvAg0JM
+Command: `cat data.txt | sort | uniq -u`
+```
+
+**L9 → L10**
+
+```
+Password: FGUW5ilLVJrxX9kMYMmlN4MgbpfMiqey
+Command: `strings data.txt | grep =`
+```
+
+**L10 → L11**
+
+```
+Password: dtR173fZKb0RRsDFSGsg2RWnpNVj3qRr
+Command: `cat data.txt | base64 -d`
+```
+
+**L11 → L12**
+
+```
+Password: 7x16WNeHIi5YkIhWsfFIqoognUTyj9Q4
+Command: `cat data.txt | tr 'A-Za-z' 'N-ZA-Mn-za-m'`
+```
+
+**L12 → L13**
+
+```
+Password: FO5dwFsc0cbaIiH0h8J2eUks2vdTDwAn
+Commands:
+- `mktemp -d` to make temp dir
+- `xxd -r data.txt decodedfile`
+- Use `file` to ID format, then unzip accordingly
+```
+
+**L13 → L14**
+
+```
+No direct password — SSH private key found.
+Commands:
+- `chmod 600 sshkey.private`
+- `ssh -i sshkey.private bandit14@localhost`
+```
+
+**L14 → L15**
+
+```
+Password: 8xCjnmgoKbGLhHFAZlGE5Tmu4M2tKJQo
+Commands:
+- `cat /etc/bandit_pass/bandit14`
+- `nmap -p 30000 localhost`
+- `nc localhost 30000`
+```
+
+**L15 → L16**
+
+```
+Password: (not yet documented)
+Note: Challenge in progress—working on port logic or service interaction at this stage.
+```
