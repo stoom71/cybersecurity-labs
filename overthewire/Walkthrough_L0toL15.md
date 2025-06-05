@@ -117,5 +117,13 @@ Commands:
 
 ```
 Password: (not yet documented)
-What I learned: Challenge in progress—working on port logic or service interaction at this stage.
+What I learned: How to initiate a secure TLS connection using `openssl s_client`. I ran `nmap -p 30001 localhost` to verify the port was open. Although not strictly necessary, it helped confirm the target. I realized `nc` and `telnet` wouldn’t work due to SSL/TLS encryption.
+
+I used:
+```bash
+openssl s_client -connect localhost:30001
+
+Notes//
+This command started a TLS connection. Once connected, I had to manually paste the Level 15 password (the one I used to SSH into the box). This is because the server running on port 30001 is programmed to accept a password over an encrypted channel and return the Level 16 password if the input is correct.
+
 ```
