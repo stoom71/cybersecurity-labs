@@ -8,18 +8,21 @@ A compilation of my walkthrough notes for the Bandit wargame from OverTheWire. G
 
 ```
 Password: MNk8KNH3Usiio41PRUEoDFPqfxLPlSmx
+What I learned: How to read hidden files and navigate directories.
 ```
 
 **L3 → L4**
 
 ```
 Password: 2WmrDFRmJIq3IPxneAaMGhap0pFhF3NJ
+What I learned: Use of hidden file names with spaces and special characters.
 ```
 
 **L4 → L5**
 
 ```
 Password: 4oQYVPkxZOOEOO5pTW81FB8j8lxXGUQw
+What I learned: How to use `find` with specific parameters like size and permissions to locate files.
 Note: Used `find inhere/ -type f -size 1033c ! -executable` to locate the file.
 ```
 
@@ -27,6 +30,7 @@ Note: Used `find inhere/ -type f -size 1033c ! -executable` to locate the file.
 
 ```
 Password: HWasnPhtq9AVKe0dmk45nxy20cvUa6EG
+What I learned: Finding files by user, group, and size, plus using stderr redirection.
 Command: find / -user bandit7 -group bandit6 -size 33c 2>/dev/null
 ```
 
@@ -34,6 +38,7 @@ Command: find / -user bandit7 -group bandit6 -size 33c 2>/dev/null
 
 ```
 Password: morbNTDkSW6jIlUc0ymOdMaLnOlFVAaj
+What I learned: Suppressing permission denied messages with `2>/dev/null` and deep file search with `find`.
 Note: Used stderr redirection `2>/dev/null` to hide permission errors.
 ```
 
@@ -41,12 +46,14 @@ Note: Used stderr redirection `2>/dev/null` to hide permission errors.
 
 ```
 Password: dfwvzFQi4mU0wfNbFOe9RoWskMLg7eEc
+What I learned: Searching through files for known strings using `grep`.
 ```
 
 **L8 → L9**
 
 ```
 Password: 4CKMh1JI91bUIZZPXDqGanal4xvAg0JM
+What I learned: Sorting and identifying unique entries with `sort` and `uniq -u`. Also learned how to pipe commands.
 Command: `cat data.txt | sort | uniq -u`
 ```
 
@@ -54,6 +61,7 @@ Command: `cat data.txt | sort | uniq -u`
 
 ```
 Password: FGUW5ilLVJrxX9kMYMmlN4MgbpfMiqey
+What I learned: Extracting readable strings from binary files using `strings`, and filtering with `grep`.
 Command: `strings data.txt | grep =`
 ```
 
@@ -61,6 +69,7 @@ Command: `strings data.txt | grep =`
 
 ```
 Password: dtR173fZKb0RRsDFSGsg2RWnpNVj3qRr
+What I learned: How to decode Base64 encoded content using `base64 -d`.
 Command: `cat data.txt | base64 -d`
 ```
 
@@ -68,6 +77,7 @@ Command: `cat data.txt | base64 -d`
 
 ```
 Password: 7x16WNeHIi5YkIhWsfFIqoognUTyj9Q4
+What I learned: How to use the `tr` command for letter rotation (ROT13 cipher).
 Command: `cat data.txt | tr 'A-Za-z' 'N-ZA-Mn-za-m'`
 ```
 
@@ -75,6 +85,7 @@ Command: `cat data.txt | tr 'A-Za-z' 'N-ZA-Mn-za-m'`
 
 ```
 Password: FO5dwFsc0cbaIiH0h8J2eUks2vdTDwAn
+What I learned: Creating temp dirs, reversing hexdumps, and identifying file formats before extracting them.
 Commands:
 - `mktemp -d` to make temp dir
 - `xxd -r data.txt decodedfile`
@@ -85,6 +96,7 @@ Commands:
 
 ```
 No direct password — SSH private key found.
+What I learned: Managing SSH keys, setting file permissions, and logging in via SSH.
 Commands:
 - `chmod 600 sshkey.private`
 - `ssh -i sshkey.private bandit14@localhost`
@@ -94,6 +106,7 @@ Commands:
 
 ```
 Password: 8xCjnmgoKbGLhHFAZlGE5Tmu4M2tKJQo
+What I learned: Using `nmap` to discover open ports and `nc` (netcat) to interact with services.
 Commands:
 - `cat /etc/bandit_pass/bandit14`
 - `nmap -p 30000 localhost`
@@ -104,5 +117,5 @@ Commands:
 
 ```
 Password: (not yet documented)
-Note: Challenge in progress—working on port logic or service interaction at this stage.
+What I learned: Challenge in progress—working on port logic or service interaction at this stage.
 ```
