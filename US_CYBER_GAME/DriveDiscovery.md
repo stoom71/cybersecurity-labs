@@ -61,30 +61,8 @@ SVBRG{d3l373d_n07_f0r60773n_283029382}
 
 ---
 
-## ⚡ TL;DR One-Liner
-
-If you're in a rush:
-
-```bash
-strings nothinginterestinghere.001 | grep -E '^[A-Za-z0-9+/=]{20,}$' | while read line; do echo "$line" | base64 -d 2>/dev/null; done
-```
-
-But honestly, breaking it down step-by-step is more readable and beginner-friendly 🔥
 
 ---
 
-## ✨ Bonus Tip
 
-If you're hunting for strings related to image files:
 
-```bash
-strings nothinginterestinghere.001 | grep -iE 'image|png|jpg|jpeg'
-```
-
-This is a helpful trick when you’re triaging binaries for embedded media or red herrings.
-
----
-
-🧠 **Lesson:** Sometimes it's just one base64 string hidden in plain sight. Look for `=` signs, and keep your filters tight but not too aggressive.
-
-Happy hacking 🚀
